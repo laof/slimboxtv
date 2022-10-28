@@ -13,12 +13,17 @@
   opacity: 1;
   width: 300px;
   height: 100px;
+  z-index: 1;
   background: white;
   border: 1px solid rgb(148, 148, 148);
-  margin: auto;
-  margin-top: 100px;
   text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -50px;
   padding: 20px;
+  display: none;
 }
 
 .number {
