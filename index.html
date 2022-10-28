@@ -18,9 +18,7 @@
 
           for (let { type, link } of disk) {
             link.forEach((item, i) => {
-              arr.push(
-                `<p>${type}<a href="${item.href}">${item.name}</a></td></p>`
-              )
+              arr.push(`<p>${type}<a href="${item.href}">${item.name}</a></p>`)
             })
           }
         })
