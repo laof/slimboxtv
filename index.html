@@ -10,9 +10,8 @@
   <body>
     <div class="mask"></div>
     <div class="win">
-      <ul class="link"></ul>
-      <button onclick="ok()">ok</button>
-      <button onclick="cancel()">cancel</button>
+      <div class="link"></div>
+      <button onclick="cancel()">关闭</button>
     </div>
     <!-- <p>https://disk.yandex.ru/d/EtOUxt9q8-T4pA/</p>
     <input type="text" value="https://disk.yandex.ru/d/EtOUxt9q8-T4pA/" style="width: 100%" id="data" /> -->
@@ -38,7 +37,7 @@
                 const mb = (obj.size / 1024 / 1024).toFixed(2) + 'M'
                 if (obj.blobStorage) {
                   list.push(
-                    `<li><a onlick="copyTextToClipboard('${obj.name}','${obj.blobStorage}')" href="javascript:;">${obj.name}</a> (${mb}) ${obj.modified} button</li>`
+                    `<p><a onlick="copyTextToClipboard('${obj.name}','${obj.blobStorage}')" href="javascript:;">${obj.name}</a> (${mb}) ${obj.modified} button</p>`
                   )
                 }
               })

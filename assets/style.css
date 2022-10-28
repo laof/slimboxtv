@@ -11,21 +11,25 @@
 
 .win {
   opacity: 1;
-  width: 300px;
-  height: 100px;
+  width: 90%;
+  height: 90%;
   z-index: 1;
   background: white;
   border: 1px solid rgb(148, 148, 148);
   text-align: center;
   position: fixed;
-  left: 50%;
-  top: 50%;
-  margin-left: -150px;
-  margin-top: -50px;
-  padding: 20px;
+  left: 5%;
+  top: 5%;
   display: none;
 }
 
+button {
+  padding: 10px;
+  margin: 0 15px;
+  width: 100px;
+}
+
 .link {
-  height: 80px;
+  height: 80%;
+  overflow: auto;
 }
