@@ -8,44 +8,60 @@
     <title>slimboxtv</title>
   </head>
   <body>
-    <div class="mask" id="xd_13_ge"></div>
+    <div class="mask"></div>
     <div class="win">
-      <div class="number"></div>
-      <input type="text" /> <button onclick="ok()">ok</button>
+      <ul class="link"></ul>
+      <button onclick="ok()">ok</button>
       <button onclick="cancel()">cancel</button>
     </div>
-
-    <p>https://disk.yandex.ru/d/EtOUxt9q8-T4pA/</p>
-    <input type="text" value="https://disk.yandex.ru/d/EtOUxt9q8-T4pA/" style="width: 100%" id="data" />
-
-    <button onclick="tv()">test</button>
-    <div id="show">
-      <h3>fdsafadf</h3>
-      <p>
-        <a onclick="fdsfad('${item.href}')" href="javascript:;">${item.name}</a>
-      </p>
-    </div>
+    <!-- <p>https://disk.yandex.ru/d/EtOUxt9q8-T4pA/</p>
+    <input type="text" value="https://disk.yandex.ru/d/EtOUxt9q8-T4pA/" style="width: 100%" id="data" /> -->
+    <!-- <button onclick="tv()">test</button> -->
+    <div id="show"></div>
     <canvas></canvas>
     <script>
-      function tv() {
-        const postData = {
+      function getLink(url) {
+        const data = {
           method: 'POST',
-          body: JSON.stringify({
-            disk: document.getElementById('data').value
-          })
+          body: JSON.stringify({ disk: url })
         }
 
         fetch(
           'https://jazzy-alfajores-2f455d.netlify.app/.netlify/functions/p3',
-          postData
+          data
         )
           .then((res) => res.json())
           .then((res) => {
-            console.log(res)
+            const list = []
+            if (res && res.files) {
+              res.files.forEach((obj) => {
+                const mb = (obj.size / 1024 / 1024).toFixed(2) + 'M'
+                if (obj.blobStorage) {
+                  list.push(
+                    `<li><a onlick="copy('${obj.name}','${obj.blobStorage}')" href="javascript:;">${obj.name}</a> (${mb}) ${obj.modified} button</li>`
+                  )
+                }
+              })
+            }
+
+            if (list.length) {
+              document.querySelector('.link').innerHTML = list.join('')
+            } else {
+              document.querySelector('.link').innerHTML = '解析失败，请重试。'
+            }
+          })
+          .catch((e) => {
+            document.querySelector('.link').innerHTML = '解析失败，请重试。'
           })
       }
 
-      function table(list) {
+      function copy(name, url) {
+        navigator.clipboard.writeText(url).then((res) => {
+          alert(name + '下载URL复制成功，请粘贴到迅雷下载')
+        })
+      }
+
+      function render(list) {
         const arr = []
 
         list.forEach(({ box, disk }) => {
@@ -54,7 +70,7 @@
           for (let { type, link } of disk) {
             link.forEach((item, i) => {
               arr.push(
-                `<p>${type}  <a onclick="fdsfad('${item.href}')" href="javascript:;">${item.name}</a></p>`
+                `<p>${type}  <a onclick="loadData('${item.href}')" href="javascript:;">${item.name}</a></p>`
               )
             })
           }
@@ -69,21 +85,17 @@
 
       fetch('assets/table.json')
         .then((res) => res.json())
-        .then((res) => {
-          table(res)
-        })
+        .then((res) => render(res))
 
-      function fdsfad(href) {
-        document.getElementById('xd_13_ge').style.display = 'block'
+      function loadData(href) {
+        getLink(href)
+        document.querySelector('.mask').style.display = 'block'
         document.querySelector('.win').style.display = 'block'
-        document.querySelector('.number').innerHTML = href
-        startCanvas()
+        document.querySelector('.link').innerHTML = 'loading...'
       }
 
-      function ok() {}
-
       function cancel() {
-        document.getElementById('xd_13_ge').style.display = 'none'
+        document.querySelector('.mask').style.display = 'none'
         document.querySelector('.win').style.display = 'none'
       }
     </script>
