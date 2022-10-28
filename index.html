@@ -61,10 +61,10 @@
         navigator.clipboard
           .writeText(text)
           .then(() => {
-            alert(name + ' URL复制成功，请粘贴到迅雷去下载')
+            alert('URL复制成功，请粘贴到迅雷去下载')
           })
           .catch((e) => {
-            alert(name + ' 地址解析，失败请重试')
+            alert('地址解析，失败请重试')
           })
       }
 
