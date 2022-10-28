@@ -1,1 +1,54 @@
-h5
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slimboxtv</title>
+  </head>
+  <body>
+    <div id="show"></div>
+
+    <script>
+      function table(list) {
+        const arr = []
+
+        list.forEach((data) => {
+          const firstType = data.disk[0].type
+
+          const body = firstType
+            ? [
+                `<tr><th colspan="2">${data.box}</th></tr>`,
+                `<tr><th>型号</th><th>网盘</th></tr>`
+              ]
+            : [`<tr><th>${data.box}</th></tr>`]
+
+          for (let { type, link } of data.disk) {
+            link.forEach((item, i) => {
+              body.push(
+                [
+                  '<tr>',
+                  firstType ? (i ? '' : `<td rowspan="2">${type}</td>`) : '',
+                  `<td><a href="${item.href}">${item.name}</a></td>`,
+                  '</tr>'
+                ].join('')
+              )
+            })
+          }
+
+          arr.push(`<table>${body.join('')}</table>`)
+        })
+
+        if (!list.length) {
+          arr.push('Oh~ Sorry, No data.')
+        }
+
+        document.getElementById('show').innerHTML = arr.join('')
+      }
+
+      fetch('assets/table.json')
+        .then((res) => res.json())
+        .then((res) => table(aaa))
+    </script>
+  </body>
+</html>
