@@ -13,30 +13,16 @@
       function table(list) {
         const arr = []
 
-        list.forEach((data) => {
-          const firstType = data.disk[0].type
+        list.forEach(({ box, dist }) => {
+          arr.push(`<h3>${box}</h3>`)
 
-          const body = firstType
-            ? [
-                `<tr><th colspan="2">${data.box}</th></tr>`,
-                `<tr><th>型号</th><th>网盘</th></tr>`
-              ]
-            : [`<tr><th>${data.box}</th></tr>`]
-
-          for (let { type, link } of data.disk) {
+          for (let { type, link } of disk) {
             link.forEach((item, i) => {
-              body.push(
-                [
-                  '<tr>',
-                  firstType ? (i ? '' : `<td rowspan="2">${type}</td>`) : '',
-                  `<td><a href="${item.href}">${item.name}</a></td>`,
-                  '</tr>'
-                ].join('')
+              arr.push(
+                `<p>${type}<a href="${item.href}">${item.name}</a></td></p>`
               )
             })
           }
-
-          arr.push(`<table>${body.join('')}</table>`)
         })
 
         if (!list.length) {
