@@ -10,12 +10,40 @@
   <body>
     <div class="mask" id="xd_13_ge"></div>
     <div class="win">
-      <div class="number">fdsfda fds fad</div>
-      <input type="text" /> <button>ok</button> <button>cancel</button>
+      <div class="number"></div>
+      <input type="text" /> <button onclick="ok()">ok</button>
+      <button onclick="cancel()">cancel</button>
     </div>
-    <div id="show"></div>
 
+    <input type="text" style="width: 100%" id="data" />
+
+    <button onclick="tv()">test</button>
+    <div id="show">
+      <h3>fdsafadf</h3>
+      <p>
+        <a onclick="fdsfad('${item.href}')" href="javascript:;">${item.name}</a>
+      </p>
+    </div>
+    <canvas></canvas>
     <script>
+      function tv() {
+        const postData = {
+          method: 'POST',
+          body: JSON.stringify({
+            disk: document.getElementById('data').value
+          })
+        }
+
+        fetch(
+          'https://jazzy-alfajores-2f455d.netlify.app/.netlify/functions/p3',
+          postData
+        )
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res)
+          })
+      }
+
       function table(list) {
         const arr = []
 
@@ -48,7 +76,16 @@
         document.getElementById('xd_13_ge').style.display = 'block'
         document.querySelector('.win').style.display = 'block'
         document.querySelector('.number').innerHTML = href
+        startCanvas()
+      }
+
+      function ok() {}
+
+      function cancel() {
+        document.getElementById('xd_13_ge').style.display = 'none'
+        document.querySelector('.win').style.display = 'none'
       }
     </script>
+    <script src="assets/canvas.js"></script>
   </body>
 </html>
