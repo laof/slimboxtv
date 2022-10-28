@@ -1,0 +1,30 @@
+.mask {
+  background: #acacac;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  opacity: 0.3;
+  display: none;
+}
+
+.win {
+  opacity: 1;
+  width: 300px;
+  height: 100px;
+  background: white;
+  border: 1px solid rgb(148, 148, 148);
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+  padding: 20px;
+}
+
+.number {
+  height: 80px;
+}
+
+input {
+  width: 80%;
+}

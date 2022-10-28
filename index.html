@@ -4,9 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css" />
     <title>slimboxtv</title>
   </head>
   <body>
+    <div class="mask" id="xd_13_ge">
+      <div class="win">
+        <div class="number">fdsfda fds fad</div>
+        <input type="text" /> <button>ok</button>
+      </div>
+    </div>
     <div id="show"></div>
 
     <script>
@@ -18,7 +25,9 @@
 
           for (let { type, link } of disk) {
             link.forEach((item, i) => {
-              arr.push(`<p>${type}  <a href="${item.href}">${item.name}</a></p>`)
+              arr.push(
+                `<p>${type}  <a (onclick)="fdsfad(item.href)" href="javascript:;">${item.name}</a></p>`
+              )
             })
           }
         })
@@ -32,7 +41,16 @@
 
       fetch('assets/table.json')
         .then((res) => res.json())
-        .then((res) => table(res))
+        .then((res) => {
+          table(res)
+        })
+
+      function fdsfad(href) {
+        document.getElementById('xd_13_ge').style.display = 'block'
+        console.log(item.href)
+
+        document.querySelector('.number').innerHTML = href
+      }
     </script>
   </body>
 </html>
