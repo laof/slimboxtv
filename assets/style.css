@@ -2,6 +2,11 @@ body.lock {
   overflow: hidden;
 }
 
+.tip {
+  margin-top: 40px;
+  font-size: 18px;
+}
+
 .mask {
   background: #acacac;
   top: 0;
