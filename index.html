@@ -16,7 +16,7 @@
     <div id="show"></div>
     <script>
       async function getLink(url) {
-        const error = '<p class="tip">解析失败，请重试。</p>'
+        const error = '<p>解析失败，请重试。</p>'
 
         try {
           await fetch('https://jazzy-alfajores-2f455d.netlify.app')
@@ -99,7 +99,7 @@
         document.body.classList.toggle('lock')
         document.querySelector('.mask').style.display = 'block'
         document.querySelector('.win').style.display = 'block'
-        document.querySelector('.link').innerHTML = '<p class="tip">加载中。。。请稍等</p>'
+        document.querySelector('.link').innerHTML = '<p>加载中。。。请稍等</p>'
       }
 
       function cancel() {
