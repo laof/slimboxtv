@@ -18,12 +18,12 @@
       async function getLink(url) {
         const error = '<p>解析失败，请重试。</p>'
 
-        try {
-          await fetch('https://jazzy-alfajores-2f455d.netlify.app')
-        } catch (e) {
-          document.querySelector('.link').innerHTML = error
-          return
-        }
+        // try {
+        //   await fetch('https://jazzy-alfajores-2f455d.netlify.app')
+        // } catch (e) {
+        //   document.querySelector('.link').innerHTML = error
+        //   return
+        // }
 
         const data = {
           method: 'POST',
