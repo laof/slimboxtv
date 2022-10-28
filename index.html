@@ -13,11 +13,7 @@
       <div class="link"></div>
       <button onclick="cancel()">关闭</button>
     </div>
-    <!-- <p>https://disk.yandex.ru/d/EtOUxt9q8-T4pA/</p>
-    <input type="text" value="https://disk.yandex.ru/d/EtOUxt9q8-T4pA/" style="width: 100%" id="data" /> -->
-    <!-- <button onclick="tv()">test</button> -->
     <div id="show"></div>
-    <!-- <canvas></canvas> -->
     <script>
       function getLink(url) {
         const data = {
@@ -37,7 +33,7 @@
                 const mb = (obj.size / 1024 / 1024).toFixed(2) + 'M'
                 if (obj.blobStorage) {
                   list.push(
-                    `<p><a onlick="copyTextToClipboard('${obj.name}','${obj.blobStorage}')" href="javascript:;">${obj.name}</a> (${mb}) ${obj.modified} button</p>`
+                    `<p><a onlick="copyTextToClipboard('${obj.name}','${obj.blobStorage}')" href="javascript:;">${obj.name}</a> (${mb}) ${obj.modified}</p>`
                   )
                 }
               })
