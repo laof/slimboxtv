@@ -44,11 +44,9 @@
               })
             }
 
-            if (list.length) {
-              document.querySelector('.link').innerHTML = list.join('')
-            } else {
-              document.querySelector('.link').innerHTML = '解析失败，请重试。'
-            }
+            document.querySelector('.link').innerHTML = list.length
+              ? list.join('')
+              : '解析失败，请重试。'
           })
           .catch((e) => {
             document.querySelector('.link').innerHTML = '解析失败，请重试。'
