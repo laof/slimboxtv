@@ -1,3 +1,7 @@
+body.lock {
+  overflow: hidden;
+}
+
 .mask {
   background: #acacac;
   top: 0;

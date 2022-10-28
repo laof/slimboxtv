@@ -96,12 +96,14 @@
 
       function loadData(href) {
         getLink(href)
+        document.querySelector('body').classList.push('lock')
         document.querySelector('.mask').style.display = 'block'
         document.querySelector('.win').style.display = 'block'
         document.querySelector('.link').innerHTML = '<p>加载中。。。请稍等</p>'
       }
 
       function cancel() {
+        document.querySelector('body').classList.remove('lock')
         document.querySelector('.mask').style.display = 'none'
         document.querySelector('.win').style.display = 'none'
       }
