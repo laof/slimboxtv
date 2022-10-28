@@ -15,10 +15,18 @@
     </div>
     <div id="show"></div>
     <script>
-      function getLink(url) {
+      async function getLink(url) {
+        const error = '<p>解析失败，请重试。</p>'
         const data = {
           method: 'POST',
           body: JSON.stringify({ disk: url })
+        }
+
+        try {
+          await fetch('https://jazzy-alfajores-2f455d.netlify.app')
+        } catch (e) {
+          document.querySelector('.link').innerHTML = error
+          return
         }
 
         fetch(
@@ -41,11 +49,10 @@
 
             document.querySelector('.link').innerHTML = list.length
               ? list.join('')
-              : '<p>解析失败，请重试。</p>'
+              : error
           })
           .catch((e) => {
-            document.querySelector('.link').innerHTML =
-              '<p>解析失败，请重试。</p>'
+            document.querySelector('.link').innerHTML = error
           })
       }
 
