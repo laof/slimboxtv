@@ -1,5 +1,3 @@
 ### slimboxTV
 
-##### 关于
-
-一键下载
+slimboxTV 一键下载
