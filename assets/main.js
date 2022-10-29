@@ -27,7 +27,7 @@ function render(list) {
           arr.push(`<p class="category">${type}</p>`)
         }
         arr.push(
-          `<p><a onclick="verify('${item.href}','${box}</br>${item.name}')">${item.name}</a></p>`
+          `<p class="disk"><a onclick="verify('${item.href}','${box}</br>${item.name}')">${item.name}</a></p>`
         )
       })
     }
