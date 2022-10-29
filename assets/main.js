@@ -1,5 +1,13 @@
 var local = location.hostname == 'localhost'
 
+function home() {
+  window.open('https://github.com/laof/slimboxtv')
+}
+
+function sync() {
+  window.open('https://github.com/laof/slimboxtv-sync')
+}
+
 function copyTextToClipboard(text) {
   navigator.clipboard
     .writeText(text)
