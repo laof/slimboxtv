@@ -78,11 +78,13 @@ function verify(url, name) {
   }
 
   document.querySelector('.check').onclick = function () {
-    const val = document.querySelector('input').value.toLocaleLowerCase()
+    const dom = document.querySelector('input')
+    const val = dom.value.toLocaleLowerCase()
 
     if (val == randomChars.toLocaleLowerCase() || local) {
       loading(url)
     } else {
+      dom.value = ''
       randomChars = randomChar()
     }
   }
