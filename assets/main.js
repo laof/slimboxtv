@@ -15,7 +15,7 @@ function render(list) {
   list.forEach(({ box, disk }, i) => {
     // if (i > 3) return
 
-    arr.push(`<h3 class="box">${box}</h3>`)
+    arr.push(`<h3 class="name">${box}</h3>`)
 
     for (let { type, link } of disk) {
       link.forEach((item, i) => {
@@ -26,7 +26,8 @@ function render(list) {
     }
   })
 
-  if (!list.length) {
+  if (list.length) {
+  } else {
     arr.push('Oh~ Sorry, No data.')
   }
 

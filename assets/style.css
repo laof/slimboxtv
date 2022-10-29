@@ -4,8 +4,26 @@
   word-break: break-all;
 }
 
+nav {
+  padding: 20px;
+  background: #fff1cf;
+  color: #ff9100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 20px;
+  border-top: 1px solid #ff9b0f;
+  border-bottom: 1px solid #ff9b0f;
+}
+
 body.lock {
   overflow: hidden;
+}
+
+.box {
+  padding: 30px 20px;
+  margin-top: 66px;
 }
 
 .tip {
@@ -50,7 +68,7 @@ canvas {
   user-select: none;
 }
 
-.box {
+.name {
   margin-top: 20px;
 }
 
