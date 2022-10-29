@@ -6,8 +6,8 @@
 
 nav {
   padding: 20px;
-  background: #fff1cf;
-  color: #ff9100;
+  background: #4c473c;
+  color: #ffd7a2;
   position: fixed;
   top: 0;
   right: 0;
@@ -50,13 +50,13 @@ body.lock {
 }
 
 .mask {
-  background: #acacac;
+  background: #000000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   position: fixed;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 .win {
@@ -111,8 +111,8 @@ canvas {
 }
 
 .title {
-  background: #606060;
-  color: wheat;
+  background: #f8ce7a;
+  color: #726345;
   padding: 10px;
 }
 
