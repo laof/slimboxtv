@@ -17,20 +17,30 @@ function render(list) {
   list.forEach(({ box, cd, disk }, i) => {
     // if (i > 3) return
 
-    arr.push(
-      `<div class="item"><span class="name">${box}</span> <date>${cd}</date></div>`
-    )
+    const files = []
 
     for (let { type, link } of disk) {
       link.forEach((item, i) => {
         if (type) {
-          arr.push(`<p class="category">${type}</p>`)
+          files.push(`<p class="category">${type}</p>`)
         }
-        arr.push(
+        files.push(
           `<p class="disk"><a onclick="verify('${item.href}','${box}</br>${item.name}')">${item.name}</a></p>`
         )
       })
     }
+
+    const div = [
+      '<div class="item"><div class="header"><span class="name">',
+      box,
+      '</span> <date>',
+      cd,
+      '</date></div><div class="info">',
+      files.join(''),
+      '</div></div>'
+    ]
+
+    arr.push(div.join(''))
   })
 
   if (list.length) {
@@ -133,7 +143,7 @@ function mockData(url, cb) {
     ]
   }
 
-  cb(data)
+  return new Promise((resolve) => resolve(cb(data)))
 }
 
 async function loading(url) {
@@ -163,7 +173,8 @@ async function loading(url) {
     }
 
     box.innerHTML = list.length ? list.join('') : error
-  }).catch(() => {
+  }).catch((e) => {
+    console.log(e)
     box.innerHTML = error
   })
 }

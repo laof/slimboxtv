@@ -5,16 +5,19 @@
 }
 
 nav {
-  padding: 20px;
+  padding: 0 20px;
   background: #4c473c;
-  color: #ffd7a2;
+  color: #fff;
   position: fixed;
   top: 0;
+  display: flex;
   right: 0;
+  height: 70px;
   left: 0;
   font-size: 20px;
   border-top: 1px solid #ff9b0f;
   border-bottom: 1px solid #ff9b0f;
+  align-items: center;
 }
 
 body.lock {
@@ -22,8 +25,9 @@ body.lock {
 }
 
 .box {
-  padding: 30px 2px;
-  margin-top: 66px;
+  padding: 30px 0;
+  margin-top: 40px;
+  background: #f3f3f3;
   margin-bottom: 50px;
 }
 
@@ -34,10 +38,6 @@ body.lock {
 .box a,
 .file a {
   color: #0e17d6;
-}
-
-.category {
-  color: #3ea36b;
 }
 
 .box p {
@@ -72,10 +72,23 @@ body.lock {
   padding-top: 0;
 }
 
+.header {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  padding: 20px;
+}
+
 .item {
   margin-top: 20px;
-  background: #f2f2f2;
-  padding: 10px;
+  background: #fff;
+  margin: 20px;
 }
 
 .name {
@@ -85,6 +98,7 @@ body.lock {
 
 date {
   font-size: 12px;
+  color: #b7b7b7;
 }
 
 .link {
@@ -99,10 +113,6 @@ canvas {
   margin: auto;
   margin-bottom: 30px;
   user-select: none;
-}
-
-.name {
-  margin-top: 20px;
 }
 
 .dialog-box {
