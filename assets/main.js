@@ -34,7 +34,7 @@ function render(list) {
   document.querySelector('.box').innerHTML = arr.join('')
 }
 
-fetch('assets/table.json')
+fetch('conf/data.json')
   .then((res) => res.json())
   .then((res) => render(res))
 
