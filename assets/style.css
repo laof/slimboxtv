@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  word-break: break-all;
+}
+
 body.lock {
   overflow: hidden;
 }
@@ -15,33 +21,64 @@ body.lock {
   bottom: 0;
   position: fixed;
   opacity: 0.3;
-  display: none;
 }
 
 .win {
   opacity: 1;
-  width: 90%;
-  height: 90%;
+  width: 600px;
   z-index: 1;
   background: white;
-  border: 1px solid rgb(148, 148, 148);
   text-align: center;
   position: fixed;
-  left: 5%;
-  top: 5%;
-  display: none;
-}
-
-button {
-  padding: 10px;
-  margin: 0 15px;
-  width: 100px;
+  left: 50%;
+  margin-left: -300px;
+  top: 80px;
+  padding-top: 0;
 }
 
 .link {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 80%;
   overflow: auto;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+.box {
+  margin-top: 20px;
+}
+
+.dialog-box {
+  padding: 38px;
+  min-height: 60px;
+}
+
+.title {
+  background: #606060;
+  color: wheat;
+  padding: 10px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #f5a53b;
+}
+
+info {
+  display: block;
+  font-size: 14px;
+  color: #a6a4a4;
+  margin-bottom: 20px;
+  margin-top: 6px;
+}
+
+.list {
+  text-align: left;
 }

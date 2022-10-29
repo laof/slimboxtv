@@ -1,113 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <title>slimboxtv</title>
-  </head>
-  <body>
-    <div class="mask"></div>
-    <div class="win">
-      <div class="link"></div>
-      <button onclick="cancel()">关闭</button>
-    </div>
-    <div id="show"></div>
-    <script>
-      async function getLink(url) {
-        const error = '<p>解析失败，请重试。</p>'
+<html lang="zh">
 
-        // try {
-        //   await fetch('https://jazzy-alfajores-2f455d.netlify.app')
-        // } catch (e) {
-        //   document.querySelector('.link').innerHTML = error
-        //   return
-        // }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="shortcut icon" href="favicon.png">
+  <title>slimboxtv</title>
+</head>
 
-        const data = {
-          method: 'POST',
-          body: JSON.stringify({ disk: url })
-        }
+<body>
+  <div class="box"></div>
+  <script src="assets/canvas.js"></script>
+  <script src="assets/main.js"></script>
+</body>
 
-        fetch(
-          'https://jazzy-alfajores-2f455d.netlify.app/.netlify/functions/p3',
-          data
-        )
-          .then((res) => res.json())
-          .then((res) => {
-            const list = []
-            if (res && res.files) {
-              res.files.forEach((obj) => {
-                const mb = (obj.size / 1024 / 1024).toFixed(2) + 'M'
-                if (obj.blobStorage) {
-                  list.push(
-                    `<p><a onclick="copyTextToClipboard('${obj.name}','${obj.blobStorage}')" href="javascript:;">${obj.name}</a> (${mb}) ${obj.modified}</p>`
-                  )
-                }
-              })
-            }
-
-            document.querySelector('.link').innerHTML = list.length
-              ? list.join('')
-              : error
-          })
-          .catch((e) => {
-            document.querySelector('.link').innerHTML = error
-          })
-      }
-
-      function copyTextToClipboard(name, text) {
-        navigator.clipboard
-          .writeText(text)
-          .then(() => {
-            alert('URL复制成功，请粘贴到迅雷去下载')
-          })
-          .catch((e) => {
-            alert('地址解析，失败请重试')
-          })
-      }
-
-      function render(list) {
-        const arr = []
-
-        list.forEach(({ box, disk }) => {
-          arr.push(`<h3>${box}</h3>`)
-
-          for (let { type, link } of disk) {
-            link.forEach((item, i) => {
-              arr.push(
-                `<p>${type}  <a onclick="loadData('${item.href}')" href="javascript:;">${item.name}</a></p>`
-              )
-            })
-          }
-        })
-
-        if (!list.length) {
-          arr.push('Oh~ Sorry, No data.')
-        }
-
-        document.getElementById('show').innerHTML = arr.join('')
-      }
-
-      fetch('assets/table.json')
-        .then((res) => res.json())
-        .then((res) => render(res))
-
-      function loadData(href) {
-        getLink(href)
-        document.body.classList.toggle('lock')
-        document.querySelector('.mask').style.display = 'block'
-        document.querySelector('.win').style.display = 'block'
-        document.querySelector('.link').innerHTML = '<p>加载中。。。请稍等</p>'
-      }
-
-      function cancel() {
-        document.body.classList.toggle('lock')
-        document.querySelector('.mask').style.display = 'none'
-        document.querySelector('.win').style.display = 'none'
-      }
-    </script>
-    <!-- <script src="assets/canvas.js"></script> -->
-  </body>
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "slimboxtv",
+  "version": "1.0.0",
+  "description": "[一键下载](https://laof.github.io/slimboxtv/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laof/slimboxtv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laof/slimboxtv/issues"
+  },
+  "homepage": "https://github.com/laof/slimboxtv#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
