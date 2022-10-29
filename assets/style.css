@@ -27,6 +27,10 @@ body.lock {
   margin-bottom: 50px;
 }
 
+.box a {
+  color: #ab9e8c;
+}
+
 .tip {
   margin-top: 40px;
   font-size: 18px;
@@ -53,6 +57,20 @@ body.lock {
   margin-left: -300px;
   top: 80px;
   padding-top: 0;
+}
+
+.item {
+  margin-top: 20px;
+}
+
+.name {
+  color: #445d81;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+date {
+  font-size: 12px;
 }
 
 .link {

@@ -12,10 +12,10 @@ function copyTextToClipboard(text) {
 function render(list) {
   const arr = []
 
-  list.forEach(({ box, disk }, i) => {
+  list.forEach(({ box, cd, disk }, i) => {
     // if (i > 3) return
 
-    arr.push(`<h3 class="name">${box}</h3>`)
+    arr.push(`<div class="item"><span class="name">${box}</span> <date>${cd}</date></div>`)
 
     for (let { type, link } of disk) {
       link.forEach((item, i) => {
