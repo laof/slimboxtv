@@ -22,17 +22,18 @@ body.lock {
 }
 
 .box {
-  padding: 30px 20px;
+  padding: 30px 2px;
   margin-top: 66px;
   margin-bottom: 50px;
 }
 
-.box a {
-  color: #3ea36b;
+.box a,
+.file a {
+  color: #0e17d6;
 }
 
 .category {
-  color: #0e17d6;
+  color: #3ea36b;
 }
 
 .box p {
@@ -69,6 +70,8 @@ body.lock {
 
 .item {
   margin-top: 20px;
+  background: #f2f2f2;
+  padding: 10px;
 }
 
 .name {
@@ -123,6 +126,6 @@ info {
   margin-top: 6px;
 }
 
-.list {
+.file {
   text-align: left;
 }

@@ -1,3 +1,5 @@
+var local = location.hostname == 'localhost'
+
 function copyTextToClipboard(text) {
   navigator.clipboard
     .writeText(text)
@@ -78,7 +80,7 @@ function verify(url, name) {
   document.querySelector('.check').onclick = function () {
     const val = document.querySelector('input').value.toLocaleLowerCase()
 
-    if (val == randomChars.toLocaleLowerCase()) {
+    if (val == randomChars.toLocaleLowerCase() || local) {
       loading(url)
     } else {
       randomChars = randomChar()
@@ -139,14 +141,16 @@ async function loading(url) {
 
   box.innerHTML = '<p>正在解析...&nbsp;&nbsp;请等待<p>'
 
-  loadData(url, (res) => {
+  const get = local ? mockData : loadData
+
+  get(url, (res) => {
     const list = []
     if (res && res.files) {
       res.files.forEach((obj, i) => {
         const mb = (obj.size / 1024 / 1024).toFixed(2) + 'M'
         if (obj.url) {
           list.push(
-            `<div class="list"><p><a onclick="copyTextToClipboard('${obj.url}')">${obj.name}</a></p><info>发布于${obj.modified}</info></div>`
+            `<div class="file"><p><a onclick="copyTextToClipboard('${obj.url}')">${obj.name}</a></p><info>发布于${obj.modified}</info></div>`
           )
         }
       })
