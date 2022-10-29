@@ -13,7 +13,7 @@ function render(list) {
   const arr = []
 
   list.forEach(({ box, disk }, i) => {
-    if (i > 3) return
+    // if (i > 3) return
 
     arr.push(`<h3 class="box">${box}</h3>`)
 
