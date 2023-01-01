@@ -120,7 +120,7 @@ function loadData(url, cb) {
     method: 'POST',
     body: JSON.stringify({ disk: url })
   }
-  var api = 'https://jazzy-alfajores-2f455d.netlify.app/.netlify/functions/p3'
+  var api = 'https://slimboxtv-download.netlify.app/.netlify/functions/p3'
   return fetch(api, data)
     .then((res) => res.json())
     .then((res) => cb(res))
