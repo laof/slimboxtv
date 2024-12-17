@@ -3,7 +3,7 @@
   "logo":"https://raw.kkgithub.com/2hacc/TVBox/main/logo.png",
   "wallpaper":"http://www.kf666888.cn/api/tvbox/img",
   "lives":[
-    {"name":"IPV4","type":0,"url":"https://nzv26-8080.csb.app/get?target=raw.githubusercontent.com/MemoryCollection/IPTV/refs/heads/main/itvlist.m3u","playerType":1},
+    {"name":"IPV4","type":0,"url":"https://ghp.ci/raw.githubusercontent.com/MemoryCollection/IPTV/refs/heads/main/itvlist.m3u","playerType":1},
     {"name":"IPV6①","type":0,"url":"https://nzv26-8080.csb.app/get?target=https://raw.githubusercontent.com/fanmingming/live/refs/heads/main/tv/m3u/ipv6.m3u","playerType":1},
     {"name":"IPV6②","type":0,"url":"https://nzv26-8080.csb.app/get?target=https://raw.githubusercontent.com/wwb521/live/main/tv.m3u","playerType":1,"logo":"https://live.fanmingming.com/tv/{name}.png"},
     {"name":"平台直播","type":0,"url":"https://tv.iill.top/m3u/Live","ua":"okhttp/3.15","playerType":2}
